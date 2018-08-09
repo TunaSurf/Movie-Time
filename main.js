@@ -2,27 +2,13 @@ require('dotenv').config();
 
 const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
-const Store = require('electron-store');
 const AppMenu = require('./menus/menu');
+const { setStore } = require('./config');
 
 let win;
+let store = setStore();
 
-const store = new Store({
-  defaults: {
-    windowBounds: {
-      position: {
-        x: undefined,
-        y: undefined
-      },
-      size: {
-        width: 800,
-        height: 600
-      }
-    }
-  }
-});
-
-function createWindow() {
+function createMainWindow() {
   let { size, position } = store.get('windowBounds');
   win = new BrowserWindow({ 
     width: size.width, 
@@ -31,7 +17,7 @@ function createWindow() {
     y: position.y,
     title: 'Movie Time',
     backgroundColor: '#EEEEEF',
-    show: false  
+    show: false
   });
 
   win.on('resize', () => {
@@ -59,7 +45,7 @@ function createWindow() {
   Menu.setApplicationMenu(AppMenu.buildMenu(menu));
 }
 
-app.on('ready', createWindow);
+app.on('ready', createMainWindow);
 
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
@@ -73,6 +59,6 @@ app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (win === null) {
-    createWindow();
+    createMainWindow();
   }
 });

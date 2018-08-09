@@ -1,8 +1,8 @@
-// const { openConfig } = require('./config');
+const { openConfig } = require('./config');
 
 const commands = {
   'window:preferences': () => {
-    // openConfig();
+    openConfig();
   },
   'window:reload': focusedWindow => {
     focusedWindow && focusedWindow.rpc.emit('reload');
