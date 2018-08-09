@@ -22,10 +22,6 @@ exports.setStore = () => {
   return store;
 }
 
-exports.getFromStore = (key, [items]) => {
-
-}
-
 function createConfigWindow() {
   //Only open if not already opened
   if(!configWin){

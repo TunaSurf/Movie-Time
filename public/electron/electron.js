@@ -5,6 +5,7 @@ const path = require('path');
 const AppMenu = require('./menus/menu');
 const { setStore } = require('./config');
 
+let isDev = process.env.NODE_ENV;
 let win;
 let store = setStore();
 
@@ -30,7 +31,7 @@ function createMainWindow() {
       store.set('windowBounds.position', { x, y });
   });
 
-  win.loadFile('index.html');
+  win.loadURL(isDev !== 'production' ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
 
   win.on('ready-to-show', () => {
       win.show();
