@@ -8,6 +8,7 @@
   "author": "Chase Burgess",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^6.0.0",
     "electron": "^2.0.6",
     "electron-store": "^2.0.0"
   }
