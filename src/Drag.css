@@ -1,0 +1,21 @@
+.dragable {
+  position: absolute;
+  width: 40%;
+  height: 21px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 12px;
+  box-sizing: border-box;
+  pointer-events: none;
+  -webkit-app-region: drag;
+}
+
+.drag-view {
+  background: rgba(238,238,238,0.1);
+  width: 95%;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}

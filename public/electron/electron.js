@@ -17,7 +17,9 @@ function createMainWindow() {
     x: position.x,
     y: position.y,
     title: 'Movie Time',
-    backgroundColor: '#EEEEEF',
+    frame: false,
+    titleBarStyle: 'hiddenInset',
+    backgroundColor: '#2E293A',
     show: false
   });
 

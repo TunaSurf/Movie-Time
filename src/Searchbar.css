@@ -1,0 +1,34 @@
+.Searchbar {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 6px;
+  right: 12px;
+  padding-left: 26px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 13px;
+  color: rgba(238,238,238,0.9);
+  background-color: rgba(20,18,26,0.5);
+  background-image: url(./search.svg);
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  background-position: center left 4px;
+  transition: 300ms;
+}
+
+.Searchbar::placeholder {
+  color: rgba(238,238,238,.5);
+  opacity: 0;
+  transition: 250ms 50ms;
+}
+
+.Searchbar:focus {
+  width: 200px;
+  outline: none;
+  color: rgba(238,238,238,0.9);
+}
+
+.Searchbar:focus::placeholder {
+  opacity: 1;
+}

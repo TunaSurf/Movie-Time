@@ -1,4 +1,5 @@
 const { BrowserWindow } = require('electron');
+const path = require('path');
 const Store = require('electron-store');
 
 let configWin;
@@ -29,7 +30,7 @@ function createConfigWindow() {
       title: 'Preferences',
       resizable: false
     });
-    configWin.loadFile('config.html');
+    configWin.loadURL(`file://${path.join(__dirname, 'config.html')}`);
     configWin.on('closed', () => {
       configWin = null;
     });
